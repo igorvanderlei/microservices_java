@@ -45,5 +45,12 @@ public class AgregateController {
 		return new ProductAgregateDto(product, reviews);
 		
 	}
+	
+	@GetMapping("product/{id}")
+	public String getReviews(@PathVariable long id) {
+		String urlReview = reviewHost + "/review/product/" + id;
+		String json = restTemplate.getForObject(urlReview, String.class);
+		return json;
+	}
 
 }

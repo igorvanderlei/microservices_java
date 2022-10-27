@@ -9,30 +9,30 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.br.ufape.residencia.catalog.model.Produto;
-import edu.br.ufape.residencia.catalog.repository.RepositorioProduto;
+import edu.br.ufape.residencia.catalog.dto.ProductRequest;
+import edu.br.ufape.residencia.catalog.dto.ProductResponse;
+import edu.br.ufape.residencia.catalog.facade.Facade;
 
 @RestController
 public class ProdutoController {
 	
 	@Autowired
-	private RepositorioProduto repositorio;
+	private Facade facade;
 
 	@GetMapping(value = "/produto")
-	public List<Produto> getProduto() {
-		return repositorio.findAll();
+	public List<ProductResponse> listAll() {
+		return facade.findAllProducts();
 	}
 	
 	@GetMapping(value = "/produto/{id}")
-	public Produto getProduto(@PathVariable long id) {
-		return repositorio
-				.findById(id)
-				.orElseThrow(() -> new RuntimeException());
+	public ProductResponse getProduct(@PathVariable long id) {
+		return facade
+				.loadProduct(id);
 	}
 	
 	@PostMapping(value = "/produto")
-	public Produto create(@RequestBody Produto produto) {
-		return repositorio.save(produto);
+	public ProductResponse create(@RequestBody ProductRequest produto) {
+		return facade.createProduct(produto);
 	}
 
 }

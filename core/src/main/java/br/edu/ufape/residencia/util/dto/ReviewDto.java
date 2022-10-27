@@ -9,5 +9,6 @@ public class ReviewDto {
 	private String title;
 	private String body;
 	private long productId;
+	private long grade;
 
 }

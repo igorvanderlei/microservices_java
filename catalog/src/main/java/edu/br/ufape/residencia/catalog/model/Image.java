@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Imagem {
+public class Image {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;

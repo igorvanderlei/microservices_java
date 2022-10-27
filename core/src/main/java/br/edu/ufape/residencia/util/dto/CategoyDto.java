@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class CategoyDto {
-	private String descricao;
-	private String detalhes;
-	private String icone;
+	private String name;
+	private String detail;
+	private String icon;
 }

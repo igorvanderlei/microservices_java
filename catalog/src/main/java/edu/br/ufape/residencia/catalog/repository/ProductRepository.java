@@ -5,11 +5,11 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import edu.br.ufape.residencia.catalog.model.Categoria;
-
+import edu.br.ufape.residencia.catalog.model.Product;
 
 @Repository
-public interface RepositorioCategoria extends JpaRepository<Categoria, Long>{
+public interface ProductRepository extends JpaRepository<Product, Long>{
+	public List<Product> findByCategory_Id(long id);
 	
-	public List<Categoria> findByDescricaoContaining(String descricao);
+
 }

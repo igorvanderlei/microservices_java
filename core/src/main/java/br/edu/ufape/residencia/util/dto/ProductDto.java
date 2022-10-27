@@ -6,8 +6,8 @@ import lombok.Data;
 
 @Data
 public class ProductDto {
-	private String descricao;
-	private String detalhes;
-	private Date lancamento;
+	private String name;
+	private String detail;
+	private Date releaseDate;
 	private boolean status;
 }
