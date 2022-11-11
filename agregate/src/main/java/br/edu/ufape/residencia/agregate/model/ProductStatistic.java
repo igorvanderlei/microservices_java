@@ -31,7 +31,7 @@ public class ProductStatistic {
 				stars.put(i, quantidade);
 			}
 		} else {
-			score = BigDecimal.valueOf(5);
+			score = BigDecimal.valueOf(0);
 			stars = new HashMap<Integer, Integer>();
 			for(int i = 1; i <=5; i++)
 				stars.put(i, 0);

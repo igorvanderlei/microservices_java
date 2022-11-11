@@ -21,18 +21,18 @@ public class CategoriaController {
 	@Autowired
 	private Facade facade;
 	
-	@PostMapping(value = "/categoria")
+	@PostMapping(value = "/catalog/categoria")
 	public CategoryResponse create(@RequestBody @Valid CategoryRequest category) {
 		
 		return facade.createCategory(category);
 	}
 	
-	@GetMapping(value = "/categoria/{id}")
+	@GetMapping(value = "/catalog/categoria/{id}")
 	public CategoryResponse find(@PathVariable long id) throws NotFoundException {
 		return facade.loadCategory(id);
 	}
 	
-	@GetMapping(value = "/categoria")
+	@GetMapping(value = "/catalog/categoria")
 	public List<CategoryResponse> listAll() {
 		return facade.findAllCategories();
 	}

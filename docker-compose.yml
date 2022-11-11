@@ -1,24 +1,36 @@
 version: '2.1'
 
 services:
+  discovery:
+    build: discovery
+    mem_limit: 512m
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      
+  gateway:
+    build: gateway
+    mem_limit: 512m
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker     
   catalog:
     build: catalog
     mem_limit: 512m
-    ports:
-      - "8081:8080"
     environment:
       - SPRING_PROFILES_ACTIVE=docker
   reviews:
     build: reviews
     mem_limit: 512m
-    ports:
-      - "8082:8080"
     environment:
       - SPRING_PROFILES_ACTIVE=docker
   agregate:
     build: agregate
     mem_limit: 512m
-    ports:
-      - "8080:8080"
     environment:
-      - SPRING_PROFILES_ACTIVE=docker      
+      - SPRING_PROFILES_ACTIVE=docker  
+  message:
+     image: "rabbitmq:3-management"
+     ports: 
+       - "5672:5672"
+       - "15672:15672"

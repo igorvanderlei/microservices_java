@@ -52,5 +52,9 @@ public class AgregateController {
 		String json = restTemplate.getForObject(urlReview, String.class);
 		return json;
 	}
+	
+	
+	
+	
 
 }

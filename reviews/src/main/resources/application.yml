@@ -1,0 +1,30 @@
+spring.application.name: reviews
+
+spring.datasource:
+  url: jdbc:postgresql://localhost:5432/micro2
+  username: igor
+  password: 123456
+spring.jpa:
+  properties.hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+  hibernate.ddl-auto: update
+  show-sql: true
+  properties.hibernate.format_sql: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+    initialInstanceInfoReplicationIntervalSeconds: 5
+    registryFetchIntervalSeconds: 5
+  instance:
+    leaseRenewalIntervalInSeconds: 5
+    leaseExpirationDurationInSeconds: 5  
+
+---
+spring.config.activate.on-profile: docker
+server.port: 8080
+spring.datasource.url: jdbc:postgresql://172.17.0.1:5432/micro2
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka/

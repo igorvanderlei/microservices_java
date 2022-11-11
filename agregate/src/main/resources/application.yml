@@ -1,0 +1,26 @@
+spring.application.name: agregate
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+    initialInstanceInfoReplicationIntervalSeconds: 5
+    registryFetchIntervalSeconds: 5
+  instance:
+    leaseRenewalIntervalInSeconds: 5
+    leaseExpirationDurationInSeconds: 5  
+
+server.port: 8083
+app.product-service.host: http://localhost:8081
+app.review-service.host: http://localhost:8082
+
+---
+spring.config.activate.on-profile: docker
+server.port: 8080
+app.product-service.host: http://catalog
+app.review-service.host: http://reviews
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka/

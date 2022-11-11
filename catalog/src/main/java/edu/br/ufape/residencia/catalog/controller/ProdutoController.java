@@ -19,18 +19,18 @@ public class ProdutoController {
 	@Autowired
 	private Facade facade;
 
-	@GetMapping(value = "/produto")
+	@GetMapping(value = "/catalog/produto")
 	public List<ProductResponse> listAll() {
 		return facade.findAllProducts();
 	}
 	
-	@GetMapping(value = "/produto/{id}")
+	@GetMapping(value = "/catalog/produto/{id}")
 	public ProductResponse getProduct(@PathVariable long id) {
 		return facade
 				.loadProduct(id);
 	}
 	
-	@PostMapping(value = "/produto")
+	@PostMapping(value = "/catalog/produto")
 	public ProductResponse create(@RequestBody ProductRequest produto) {
 		return facade.createProduct(produto);
 	}

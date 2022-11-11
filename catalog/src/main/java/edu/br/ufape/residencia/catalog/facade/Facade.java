@@ -19,6 +19,7 @@ public class Facade {
 	private CategoryService categoryService; 
 	@Autowired
 	private ProductService productService;
+	
 	public CategoryResponse createCategory(CategoryRequest categoryRequest) {
 		return categoryService.createCategory(categoryRequest);
 	}
