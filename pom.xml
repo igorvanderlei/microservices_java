@@ -8,6 +8,7 @@
   
   <modules>
     <module>core</module>
+    <module>auth</module>
   	<module>catalog</module>
   	<module>reviews</module>
   	<module>agregate</module>
